@@ -1,0 +1,23 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: springclouduser #注册到微服务注册中心去的名字
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/gannan17?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    jpa:
+      database: mysql
+      show-sql: true
+      hibernate:
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    thymeleaf:
+      cache: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:123456@localhost:8761/eureka #表示将当前微服务注册到服务注册中心去
+  instance:
+    prefer-ip-address: true #将ip地址注册到服务中心去
